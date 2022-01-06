@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;400;700&family=Playball&display=swap");
+
+body {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+button,
+input,
+select,
+textarea {
+  font-family: "Lexend Deca", sans-serif;
+}
