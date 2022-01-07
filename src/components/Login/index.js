@@ -4,6 +4,7 @@ import Input from "../Input";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
+import Loading from "../Loading";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -11,7 +12,10 @@ export default function Login() {
   const [user, setUser] = useState("");
   const [token, setToken] = useState("");
 
+  const [loading, setLoading] = useState(false);
+
   const handleLogin = (e) => {
+    setLoading(true);
     e.preventDefault();
     console.log(email, password);
     axios
@@ -29,6 +33,7 @@ export default function Login() {
       })
       .catch((error) => {
         console.log(error.response);
+        setLoading(false);
       });
   };
 
@@ -39,18 +44,20 @@ export default function Login() {
       <Logo />
       <form onSubmit={handleLogin}>
         <Input
+          disabled={loading}
           type="email"
           value={email}
           placeholder="email"
           onChange={(e) => setEmail(e.target.value)}
         />
         <Input
+          disabled={loading}
           type="password"
           value={password}
           placeholder="senha"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Entrar</button>
+        <button type="submit">{loading ? <Loading /> : "Entrar"}</button>
       </form>
       <Link to="/cadastro">
         <p>Não tem uma conta? Cadastre-se!</p>
