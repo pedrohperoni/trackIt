@@ -13,8 +13,27 @@ const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
 
-  height: 50px;
+  height: 70px;
   padding: 0 18px;
+
+  a {
+    text-decoration: none;
+  }
+
+  h1 {
+    color: #fff;
+    font-family: "Playball", cursive;
+    font-size: 39px;
+    line-height: 48px;
+  }
+
+  img {
+    :last-of-type {
+      border-radius: 50px;
+      width: 51px;
+      height: 51px;
+    }
+  }
 `;
 
 export { HeaderContainer };

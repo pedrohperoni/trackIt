@@ -1,17 +1,18 @@
 import { HeaderContainer } from "./style";
-import logo from "../../assets/smallLogo.svg";
 
 import { useContext } from "react";
 import UserContext from "../../contexts/userContext";
-import TokenContext from "../../contexts/tokenContext";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const { user } = useContext(UserContext);
-  const { token } = useContext(TokenContext);
   return (
     <>
       <HeaderContainer>
-        <img src={logo} alt="TrackIt" />
+        <Link to="/">
+          <h1>TrackIt</h1>
+        </Link>
+
         <img src={user.image} alt="TrackIt" />
       </HeaderContainer>
     </>

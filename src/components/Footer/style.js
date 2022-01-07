@@ -23,10 +23,6 @@ const FooterContainer = styled.footer`
   div {
     margin-bottom: 48px;
   }
-
-  .CircularProgressbar .CircularProgressbar-background {
-    fill: red;
-  }
 `;
 
 export { FooterContainer };

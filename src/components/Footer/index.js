@@ -10,7 +10,7 @@ export default function Footer() {
     <>
       <FooterContainer>
         <Link to="/habitos">Hábitos</Link>
-        <Link to="/">
+        <Link to="/hoje">
           <div style={{ width: 91, height: 91 }}>
             <CircularProgressbar
               value={percentage}
@@ -26,7 +26,7 @@ export default function Footer() {
             />
           </div>
         </Link>
-        <Link to="/">Histórico</Link>
+        <Link to="/historico">Histórico</Link>
       </FooterContainer>
     </>
   );

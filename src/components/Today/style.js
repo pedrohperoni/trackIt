@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const TodayContainer = styled.div`
-  margin-top: 50px;
+  margin-top: 70px;
   background-color: #f2f2f2;
   height: 100vh;
   width: 100vw;

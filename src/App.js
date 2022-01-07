@@ -6,6 +6,7 @@ import Register from "./components/Register";
 import Today from "./components/Today";
 import UserContext from "./contexts/userContext";
 import TokenContext from "./contexts/tokenContext";
+import History from "./components/History";
 
 function App() {
   const [user, setUser] = useState([]);
@@ -20,6 +21,7 @@ function App() {
             <Route path="/cadastro" element={<Register />} />
             <Route path="/hoje" element={<Today />} />
             <Route path="/habitos" element={<Habits />} />
+            <Route path="/historico" element={<History />} />
           </Routes>
         </BrowserRouter>
       </TokenContext.Provider>
