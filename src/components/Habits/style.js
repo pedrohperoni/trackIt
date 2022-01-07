@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const HabitsContainer = styled.div`
   margin-top: 50px;
-  background-color: #e5e5e5;
+  background-color: #f2f2f2;
   height: 100vh;
   width: 100vw;
   p {

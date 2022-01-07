@@ -8,11 +8,11 @@ const Input = styled.input`
   font-size: 20px;
   border: 1px solid #d5d5d5;
   margin-bottom: 5px;
+  padding-left: 10px;
 
   ::placeholder {
     color: #dbdbdb;
     font-size: 20px;
-    padding-left: 10px;
   }
 `;
 
