@@ -2,7 +2,17 @@ import Footer from "../Footer";
 import Header from "../Header";
 import { HabitContainer, TodayContainer, TodayHeader } from "./style";
 import check from "../../assets/check.svg";
+
+import { useContext } from "react";
+import UserContext from "../../contexts/userContext";
+import TokenContext from "../../contexts/tokenContext";
+
 export default function Today() {
+  const { user } = useContext(UserContext);
+  const { token } = useContext(TokenContext);
+
+  console.log("today log", user);
+  console.log("token", token);
   return (
     <>
       <Header />

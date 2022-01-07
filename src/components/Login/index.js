@@ -3,14 +3,17 @@ import { LoginContainer } from "./style";
 import Input from "../Input";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Loading from "../Loading";
+
+import UserContext from "../../contexts/userContext";
+import TokenContext from "../../contexts/tokenContext";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState("");
-  const [token, setToken] = useState("");
+  const { setUser } = useContext(UserContext);
+  const { setToken } = useContext(TokenContext);
 
   const navigate = useNavigate();
 
@@ -19,7 +22,6 @@ export default function Login() {
   const handleLogin = (e) => {
     setLoading(true);
     e.preventDefault();
-    console.log(email, password);
     axios
       .post(
         "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/login",
@@ -31,17 +33,13 @@ export default function Login() {
       .then((response) => {
         setUser(response.data);
         setToken(response.data.token);
-        console.log(user, token);
         navigate("/hoje");
       })
-      .catch((error) => {
-        console.log(error.response);
+      .catch(() => {
         alert("Usuario ou senha incorreta");
         setLoading(false);
       });
   };
-
-  console.log(user, token);
 
   return (
     <LoginContainer>
