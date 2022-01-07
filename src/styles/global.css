@@ -1,11 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;400;700&family=Playball&display=swap");
 
 body {
-  width: 100%;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 h1,
