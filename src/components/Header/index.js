@@ -13,7 +13,7 @@ export default function Header() {
           <h1>TrackIt</h1>
         </Link>
 
-        <img src={user.image} alt="TrackIt" />
+        <img src={user.image} alt="User" />
       </HeaderContainer>
     </>
   );

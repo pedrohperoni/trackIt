@@ -29,6 +29,9 @@ const HabitsHeader = styled.div`
     border: 0;
     font-size: 27px;
     line-height: 33.72px;
+    :hover {
+      opacity: 0.5;
+    }
   }
 
   h2 {
@@ -61,6 +64,56 @@ const HabitsCreator = styled.div`
       color: #dbdbdb;
     }
   }
+
+  button {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid #d4d4d4;
+    color: #dbdbdb;
+    margin-top: 10px;
+    margin-right: 4px;
+    font-size: 19.976px;
+    line-height: 25px;
+    text-align: center;
+
+    :hover {
+      opacity: 0.5;
+    }
+  }
 `;
 
-export { HabitsContainer, HabitsHeader, HabitsCreator };
+const HabitsCreatorMenu = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  button {
+    width: 84px;
+    height: 35px;
+    border-radius: 5px;
+    font-size: 15.976px;
+    line-height: 20px;
+    margin-top: 29px;
+    margin-bottom: 15px;
+
+    :first-of-type {
+      background-color: #fff;
+      border: 0;
+      color: #52b6ff;
+
+      margin-right: 23px;
+    }
+    :last-of-type {
+      background-color: #52b6ff;
+      color: #fff;
+      border: 0;
+    }
+    :hover {
+      opacity: 0.5;
+    }
+  }
+`;
+
+export { HabitsContainer, HabitsHeader, HabitsCreator, HabitsCreatorMenu };
