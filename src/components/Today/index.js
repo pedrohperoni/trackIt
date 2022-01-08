@@ -12,11 +12,6 @@ export default function Today() {
   const { token } = useContext(TokenContext);
   const { progress, setProgress } = useContext(ProgressContext);
   const [habits, setHabits] = useState([]);
-
-  console.log(progress);
-
-  console.log(habits);
-
   require("dayjs/locale/pt-br");
 
   const update = () => {
@@ -40,12 +35,16 @@ export default function Today() {
     let completedQTY = 0;
     let percentage = 0;
     for (let i = 0; i < habitsQTY; i++) {
+      if (habitsQTY === 0) {
+        setProgress(0);
+        break;
+      }
       if (habits[i].done === true) {
         completedQTY++;
       }
+      percentage = Math.round((completedQTY / habitsQTY) * 100);
+      setProgress(percentage);
     }
-    percentage = Math.round((completedQTY / habitsQTY) * 100);
-    setProgress(percentage);
   };
 
   updateProgress();
@@ -67,10 +66,11 @@ export default function Today() {
             }
           )
           .then((response) => {
-            console.log(response.data);
             update();
           })
-          .catch((error) => console.log(error.response))
+          .catch((error) => {
+            update();
+          })
       : axios
           .post(
             `https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${habit.id}/check`,
@@ -82,13 +82,12 @@ export default function Today() {
             }
           )
           .then((response) => {
-            console.log(response.data);
             update();
           })
-          .catch((error) => console.log(error.response));
+          .catch((error) => {
+            update();
+          });
   };
-
-  console.log(habits);
 
   return (
     <>

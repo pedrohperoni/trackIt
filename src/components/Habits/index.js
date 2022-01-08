@@ -78,6 +78,7 @@ export default function Habits() {
       })
       .catch((error) => {
         setLoading(false);
+        alert("Erro ao criar seus habito, tente novamente");
       });
   };
 
