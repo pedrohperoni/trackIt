@@ -3,8 +3,9 @@ import styled from "styled-components";
 const HabitsContainer = styled.div`
   margin-top: 70px;
   background-color: #f2f2f2;
-  height: 100vh;
   width: 100vw;
+  height: 100%;
+  padding-bottom: 90px;
   p {
     font-size: 18px;
     line-height: 22.5px;
@@ -102,13 +103,15 @@ const HabitsCreatorMenu = styled.div`
       background-color: #fff;
       border: 0;
       color: #52b6ff;
-
       margin-right: 23px;
     }
     :last-of-type {
       background-color: #52b6ff;
       color: #fff;
       border: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     :hover {
       opacity: 0.5;
@@ -116,4 +119,55 @@ const HabitsCreatorMenu = styled.div`
   }
 `;
 
-export { HabitsContainer, HabitsHeader, HabitsCreator, HabitsCreatorMenu };
+const HabitItem = styled.div`
+  height: 91px;
+  margin: 0 17px 10px 17px;
+  padding: 13px 11px 15px 15px;
+  background-color: #fff;
+  position: relative;
+  border-radius: 5px;
+
+  h1 {
+    font-size: 19.976px;
+    line-height: 25px;
+    color: #666666;
+  }
+  img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+  }
+  button {
+    :first-of-type {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 0px;
+      background-color: #fff;
+      border: 0px;
+      text-align: center;
+      height: 34px;
+      width: 33px;
+    }
+
+    height: 30px;
+    width: 30px;
+    font-size: 19.976px;
+    line-height: 25px;
+    background-color: #fff;
+    border: 1px solid #d5d5d5;
+    border-radius: 5px;
+    color: #dbdbdb;
+    margin-right: 4px;
+    margin-top: 8px;
+  }
+`;
+
+export {
+  HabitsContainer,
+  HabitsHeader,
+  HabitsCreator,
+  HabitsCreatorMenu,
+  HabitItem,
+};
