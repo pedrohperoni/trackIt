@@ -26,14 +26,18 @@ export default function Habits() {
   const days = [
     {
       day: "D",
-      id: 1,
+      id: 0,
     },
     {
       day: "S",
-      id: 2,
+      id: 1,
     },
     {
       day: "T",
+      id: 2,
+    },
+    {
+      day: "Q",
       id: 3,
     },
     {
@@ -41,16 +45,12 @@ export default function Habits() {
       id: 4,
     },
     {
-      day: "Q",
+      day: "S",
       id: 5,
     },
     {
       day: "S",
       id: 6,
-    },
-    {
-      day: "S",
-      id: 7,
     },
   ];
 
@@ -73,11 +73,11 @@ export default function Habits() {
         setLoading(false);
         setToggleCreate(false);
         setNewHabitName("");
+        setNewHabitDays([]);
         update();
       })
       .catch((error) => {
         setLoading(false);
-        console.log(error.response);
       });
   };
 
@@ -113,20 +113,13 @@ export default function Habits() {
       if (index >= 0) {
         buffer.splice(index, 1);
         setNewHabitDays(buffer);
-        console.log(newHabitDays);
       }
       update();
-
-      console.log(newHabitDays);
     } else {
       newHabitDays.push(habit);
-
-      console.log(newHabitDays);
       update();
     }
   };
-  console.log("days", days);
-  console.log("habits", habits);
 
   const update = () => {
     axios
@@ -172,7 +165,7 @@ export default function Habits() {
             />
             {days.map((day) => (
               <Button
-                active={false}
+                active={newHabitDays.includes(day.id)}
                 disabled={loading}
                 onClick={() => handleDaySelector(day.id)}
               >

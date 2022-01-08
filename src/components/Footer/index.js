@@ -3,9 +3,12 @@ import { FooterContainer } from "./style";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
-const percentage = 33;
+import ProgressContext from "../../contexts/progressContext";
+import { useContext } from "react";
 
 export default function Footer() {
+  const { progress } = useContext(ProgressContext);
+  const percentage = progress;
   return (
     <>
       <FooterContainer>

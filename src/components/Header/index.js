@@ -1,11 +1,12 @@
 import { HeaderContainer } from "./style";
-
 import { useContext } from "react";
 import UserContext from "../../contexts/userContext";
+
 import { Link } from "react-router-dom";
 
 export default function Header() {
   const { user } = useContext(UserContext);
+
   return (
     <>
       <HeaderContainer>

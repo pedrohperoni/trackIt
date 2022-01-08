@@ -3,7 +3,6 @@ import Header from "../Header";
 import { TodayContainer, TodayHeader, HabitContainer } from "./style";
 import check from "../../assets/check.svg";
 import dayjs from "dayjs";
-import styled from "styled-components";
 
 import { useContext, useEffect, useState } from "react";
 import TokenContext from "../../contexts/tokenContext";
@@ -70,6 +69,8 @@ export default function Today() {
           })
           .catch((error) => console.log(error.response));
   };
+
+  console.log(habits);
 
   return (
     <>
