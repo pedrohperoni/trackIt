@@ -65,23 +65,23 @@ const HabitsCreator = styled.div`
       color: #dbdbdb;
     }
   }
+`;
 
-  button {
-    width: 30px;
-    height: 30px;
-    border-radius: 5px;
-    background-color: #fff;
-    border: 1px solid #d4d4d4;
-    color: #dbdbdb;
-    margin-top: 10px;
-    margin-right: 4px;
-    font-size: 19.976px;
-    line-height: 25px;
-    text-align: center;
+const Button = styled.button`
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: ${(props) => (props.active ? "#cfcfcf" : "#fff")};
+  color: ${(props) => (props.active ? "#fff" : "#dbdbdb")};
+  border: 1px solid #d4d4d4;
+  margin-top: 10px;
+  margin-right: 4px;
+  font-size: 19.976px;
+  line-height: 25px;
+  text-align: center;
 
-    :hover {
-      opacity: 0.5;
-    }
+  :hover {
+    opacity: 0.5;
   }
 `;
 
@@ -170,4 +170,5 @@ export {
   HabitsCreator,
   HabitsCreatorMenu,
   HabitItem,
+  Button,
 };

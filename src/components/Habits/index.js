@@ -10,6 +10,7 @@ import {
   HabitsHeader,
   HabitsCreatorMenu,
   HabitItem,
+  Button,
 } from "./style";
 
 import trash from "../../assets/trash.svg";
@@ -17,12 +18,41 @@ import trash from "../../assets/trash.svg";
 export default function Habits() {
   const [toggleCreate, setToggleCreate] = useState(false);
   const [newHabitName, setNewHabitName] = useState("");
-  const [newHabitDays, setNewHabitDays] = useState([1, 2, 3, 4, 5, 6, 7]);
+  const [newHabitDays, setNewHabitDays] = useState([]);
   const [habits, setHabits] = useState([]);
   const [loading, setLoading] = useState(false);
   const { token } = useContext(TokenContext);
 
-  const days = ["D", "S", "T", "Q", "Q", "S", "S"];
+  const days = [
+    {
+      day: "D",
+      id: 1,
+    },
+    {
+      day: "S",
+      id: 2,
+    },
+    {
+      day: "T",
+      id: 3,
+    },
+    {
+      day: "Q",
+      id: 4,
+    },
+    {
+      day: "Q",
+      id: 5,
+    },
+    {
+      day: "S",
+      id: 6,
+    },
+    {
+      day: "S",
+      id: 7,
+    },
+  ];
 
   const createHabit = () => {
     setLoading(true);
@@ -43,6 +73,7 @@ export default function Habits() {
         setLoading(false);
         setToggleCreate(false);
         setNewHabitName("");
+        update();
       })
       .catch((error) => {
         setLoading(false);
@@ -67,6 +98,7 @@ export default function Habits() {
           )
           .then((response) => {
             console.log(response);
+            update();
           })
           .catch((err) => {
             console.log(err);
@@ -74,12 +106,29 @@ export default function Habits() {
       : console.log("nao");
   };
 
-  const handleDaySelector = (aaa) => {
-    console.log(aaa);
-    console.log(days.indexOf(aaa));
+  const handleDaySelector = (habit) => {
+    if (newHabitDays.includes(habit)) {
+      const buffer = [...newHabitDays];
+      const index = buffer.indexOf(habit);
+      if (index >= 0) {
+        buffer.splice(index, 1);
+        setNewHabitDays(buffer);
+        console.log(newHabitDays);
+      }
+      update();
+
+      console.log(newHabitDays);
+    } else {
+      newHabitDays.push(habit);
+
+      console.log(newHabitDays);
+      update();
+    }
   };
 
-  useEffect(() => {
+  console.log(habits);
+
+  const update = () => {
     axios
       .get(
         "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits",
@@ -93,6 +142,10 @@ export default function Habits() {
         setHabits([...response.data]);
       })
       .catch((error) => console.log(error.response));
+  };
+
+  useEffect(() => {
+    update();
   }, []);
 
   return (
@@ -118,9 +171,13 @@ export default function Habits() {
               value={newHabitName.length > 0 ? newHabitName : ""}
             />
             {days.map((day) => (
-              <button disabled={loading} onClick={() => handleDaySelector(day)}>
-                {day}
-              </button>
+              <Button
+                active={false}
+                disabled={loading}
+                onClick={() => handleDaySelector(day.id)}
+              >
+                {day.day}
+              </Button>
             ))}
 
             <HabitsCreatorMenu>
@@ -153,7 +210,7 @@ export default function Habits() {
                 <img src={trash} alt="X" />
               </button>
               {days.map((day) => (
-                <button>{days.includes(day) ? "S" : "N"}</button>
+                <Button active={false}>{days.includes(day) ? "S" : "N"}</Button>
               ))}
             </HabitItem>
           ))
