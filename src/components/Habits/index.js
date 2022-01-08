@@ -17,7 +17,7 @@ import trash from "../../assets/trash.svg";
 export default function Habits() {
   const [toggleCreate, setToggleCreate] = useState(false);
   const [newHabitName, setNewHabitName] = useState("");
-  const [newHabitDays, setNewHabitDays] = useState([1, 3, 4]);
+  const [newHabitDays, setNewHabitDays] = useState([1, 2, 3, 4, 5, 6, 7]);
   const [habits, setHabits] = useState([]);
   const [loading, setLoading] = useState(false);
   const { token } = useContext(TokenContext);
