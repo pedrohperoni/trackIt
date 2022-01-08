@@ -125,8 +125,8 @@ export default function Habits() {
       update();
     }
   };
-
-  console.log(habits);
+  console.log("days", days);
+  console.log("habits", habits);
 
   const update = () => {
     axios
@@ -210,7 +210,7 @@ export default function Habits() {
                 <img src={trash} alt="X" />
               </button>
               {days.map((day) => (
-                <Button active={false}>{days.includes(day) ? "S" : "N"}</Button>
+                <Button active={habit.days.includes(day.id)}>{day.day}</Button>
               ))}
             </HabitItem>
           ))

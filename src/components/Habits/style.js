@@ -155,10 +155,8 @@ const HabitItem = styled.div`
     width: 30px;
     font-size: 19.976px;
     line-height: 25px;
-    background-color: #fff;
     border: 1px solid #d5d5d5;
     border-radius: 5px;
-    color: #dbdbdb;
     margin-right: 4px;
     margin-top: 8px;
   }
