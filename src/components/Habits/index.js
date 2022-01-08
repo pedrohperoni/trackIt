@@ -15,7 +15,7 @@ import {
 import trash from "../../assets/trash.svg";
 
 export default function Habits() {
-  const [toggleCreate, setToggleActive] = useState(false);
+  const [toggleCreate, setToggleCreate] = useState(false);
   const [newHabitName, setNewHabitName] = useState("");
   const [newHabitDays, setNewHabitDays] = useState([1, 3, 4]);
   const [habits, setHabits] = useState([]);
@@ -39,20 +39,44 @@ export default function Habits() {
           },
         }
       )
-      .then((response) => {
+      .then(() => {
         setLoading(false);
-        console.log(response.data);
+        setToggleCreate(false);
+        setNewHabitName("");
       })
       .catch((error) => {
         setLoading(false);
         console.log(error.response);
       });
-    console.log(newHabitName);
-    console.log(newHabitDays);
   };
 
-  const deleteHabit = () => {
-    console.log("aaa");
+  const deleteHabit = (habit) => {
+    console.log(habit);
+    let confirmDeletion = window.confirm(
+      "Tem certeza que deseja deletar esse habito?"
+    );
+    confirmDeletion
+      ? axios
+          .delete(
+            `https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${habit}`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          )
+          .then((response) => {
+            console.log(response);
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+      : console.log("nao");
+  };
+
+  const handleDaySelector = (aaa) => {
+    console.log(aaa);
+    console.log(days.indexOf(aaa));
   };
 
   useEffect(() => {
@@ -71,8 +95,6 @@ export default function Habits() {
       .catch((error) => console.log(error.response));
   }, []);
 
-  console.log("habitos clone", habits);
-
   return (
     <>
       <Header />
@@ -81,7 +103,7 @@ export default function Habits() {
           <h2>Meus hábitos </h2>
           <button
             onClick={() =>
-              toggleCreate ? setToggleActive(false) : setToggleActive(true)
+              toggleCreate ? setToggleCreate(false) : setToggleCreate(true)
             }
           >
             +
@@ -93,13 +115,16 @@ export default function Habits() {
               disabled={loading}
               onChange={(e) => setNewHabitName(e.target.value)}
               placeholder="nome do hábito"
+              value={newHabitName.length > 0 ? newHabitName : ""}
             />
             {days.map((day) => (
-              <button disabled={loading}>{day}</button>
+              <button disabled={loading} onClick={() => handleDaySelector(day)}>
+                {day}
+              </button>
             ))}
 
             <HabitsCreatorMenu>
-              <button onClick={() => setToggleActive(false)}>Cancelar</button>
+              <button onClick={() => setToggleCreate(false)}>Cancelar</button>
               {loading ? (
                 <button>
                   <Loading />
@@ -115,7 +140,7 @@ export default function Habits() {
           ""
         )}
 
-        {habits.length == 0 ? (
+        {habits.length === 0 ? (
           <p>
             Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para
             começar a trackear!
@@ -124,11 +149,11 @@ export default function Habits() {
           habits.map((habit) => (
             <HabitItem key={habit.id}>
               <h1>{habit.name}</h1>
-              <button onClick={deleteHabit}>
+              <button onClick={() => deleteHabit(habit.id)}>
                 <img src={trash} alt="X" />
               </button>
               {days.map((day) => (
-                <button>{days.includes(day) ? console.log("a") : "N"}</button>
+                <button>{days.includes(day) ? "S" : "N"}</button>
               ))}
             </HabitItem>
           ))

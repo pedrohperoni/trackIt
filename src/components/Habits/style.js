@@ -4,7 +4,7 @@ const HabitsContainer = styled.div`
   margin-top: 70px;
   background-color: #f2f2f2;
   width: 100vw;
-  height: 100%;
+  min-height: 100vh;
   padding-bottom: 90px;
   p {
     font-size: 18px;
