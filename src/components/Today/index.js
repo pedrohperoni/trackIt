@@ -1,16 +1,19 @@
+import { useContext, useEffect, useState } from "react";
+import dayjs from "dayjs";
+import axios from "axios";
 import Footer from "../Footer";
 import Header from "../Header";
 import { TodayContainer, TodayHeader, HabitContainer } from "./style";
-import check from "../../assets/check.svg";
-import dayjs from "dayjs";
-
-import { useContext, useEffect, useState } from "react";
 import TokenContext from "../../contexts/tokenContext";
-import axios from "axios";
+import check from "../../assets/check.svg";
+import ProgressContext from "../../contexts/progressContext";
 
 export default function Today() {
   const { token } = useContext(TokenContext);
-  const [habits, setHabits] = useState([""]);
+  const { progress, setProgress } = useContext(ProgressContext);
+  const [habits, setHabits] = useState([]);
+
+  console.log(progress);
 
   console.log(habits);
 
@@ -31,6 +34,21 @@ export default function Today() {
       })
       .catch((error) => console.log(error.response));
   };
+
+  const updateProgress = () => {
+    const habitsQTY = habits.length;
+    let completedQTY = 0;
+    let percentage = 0;
+    for (let i = 0; i < habitsQTY; i++) {
+      if (habits[i].done === true) {
+        completedQTY++;
+      }
+    }
+    percentage = Math.round((completedQTY / habitsQTY) * 100);
+    setProgress(percentage);
+  };
+
+  updateProgress();
 
   useEffect(() => {
     update();
@@ -76,11 +94,15 @@ export default function Today() {
     <>
       <Header />
       <TodayContainer>
-        <TodayHeader>
+        <TodayHeader active={progress > 0}>
           <h2>
             {dayjs().locale("pt-br").format("dddd")}, {dayjs().format("DD/MM")}
           </h2>
-          <h3>Nenhum habito concluido ainda</h3>
+          {progress > 0 ? (
+            <h3>{progress}% dos hábitos concluídos</h3>
+          ) : (
+            <h3>Nenhum hábito concluído ainda</h3>
+          )}
         </TodayHeader>
         {habits.length > 0
           ? habits.map((habit) => (
@@ -94,7 +116,8 @@ export default function Today() {
                 <div key={habit.id}>
                   <h1>{habit.name}</h1>
                   <p>
-                    Sequencia atual: <span>{habit.currentSequence} dias</span>
+                    Sequência atual atual:{" "}
+                    <span>{habit.currentSequence} dias</span>
                   </p>
                   <p>
                     Seu recode: <span>{habit.highestSequence} dias</span>

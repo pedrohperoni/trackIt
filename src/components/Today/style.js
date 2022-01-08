@@ -24,7 +24,7 @@ const TodayHeader = styled.div`
   h3 {
     font-size: 18px;
     line-height: 23px;
-    color: #bababa;
+    color: ${(props) => (props.active ? "#8fc549" : "#bababa")};
   }
 `;
 
