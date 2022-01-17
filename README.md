@@ -1,7 +1,7 @@
-<!-- <br />
+<br />
 <p align="center">
-  <a href="https://github.com/pedrohperoni/face-app/">
-    <img src="https://github.com/pedrohperoni/face-app/blob/master/github/face-recognition.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/pedrohperoni/trackit/">
+    <img src="https://raw.githubusercontent.com/pedrohperoni/trackIt/main/github/logo.png" alt="Logo">
   </a>
   
   <h3 align="center">trackIt</h3>
@@ -19,10 +19,15 @@ This project is fully functional but some features can be added, such as a month
 
 
 ## Screenshots
-<img src="https://github.com/pedrohperoni/face-app/blob/master/github/screenshot.png" alt="ss">
-<img src="https://github.com/pedrohperoni/face-app/blob/master/github/screenshot1.png" alt="ss">
-<img src="https://github.com/pedrohperoni/face-app/blob/master/github/screenshot2.png" alt="ss">
-<img src="https://github.com/pedrohperoni/face-app/blob/master/github/screenshot3.png" alt="ss">
+<img src="https://raw.githubusercontent.com/pedrohperoni/trackIt/main/github/home.png" alt="ss">
+<img src="https://raw.githubusercontent.com/pedrohperoni/trackIt/main/github/register.png" alt="ss">
+<img src="https://raw.githubusercontent.com/pedrohperoni/trackIt/main/github/habits.png" alt="ss">
+<img src="https://raw.githubusercontent.com/pedrohperoni/trackIt/main/github/habits1.png" alt="ss">
+<img src="https://raw.githubusercontent.com/pedrohperoni/trackIt/main/github/habits2.png" alt="ss">
+<img src="https://raw.githubusercontent.com/pedrohperoni/trackIt/main/github/menu.png" alt="ss">
+<img src="https://raw.githubusercontent.com/pedrohperoni/trackIt/main/github/menu1.png" alt="ss">
+<img src="https://raw.githubusercontent.com/pedrohperoni/trackIt/main/github/history.png" alt="ss">
+
 
 
 
@@ -47,4 +52,3 @@ To Visit App:
 `localhost:3000` 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
- -->
