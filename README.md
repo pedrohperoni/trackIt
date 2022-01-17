@@ -23,15 +23,16 @@ This project is fully functional but some features can be added, such as a month
 <img src="https://raw.githubusercontent.com/pedrohperoni/trackIt/main/github/home.png" alt="ss">
 <img src="https://raw.githubusercontent.com/pedrohperoni/trackIt/main/github/register.png" alt="ss">
 </p>
-
+<p float="left">
 <img src="https://raw.githubusercontent.com/pedrohperoni/trackIt/main/github/habits.png" alt="ss">
 <img src="https://raw.githubusercontent.com/pedrohperoni/trackIt/main/github/habits1.png" alt="ss">
 <img src="https://raw.githubusercontent.com/pedrohperoni/trackIt/main/github/habits2.png" alt="ss">
+</p>
+<p float="left">
 <img src="https://raw.githubusercontent.com/pedrohperoni/trackIt/main/github/menu.png" alt="ss">
 <img src="https://raw.githubusercontent.com/pedrohperoni/trackIt/main/github/menu1.png" alt="ss">
 <img src="https://raw.githubusercontent.com/pedrohperoni/trackIt/main/github/history.png" alt="ss">
-
-
+</p>
 
 
 ## Installation and Setup Instructions
