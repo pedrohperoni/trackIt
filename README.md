@@ -19,8 +19,11 @@ This project is fully functional but some features can be added, such as a month
 
 
 ## Screenshots
+<p float="left">
 <img src="https://raw.githubusercontent.com/pedrohperoni/trackIt/main/github/home.png" alt="ss">
 <img src="https://raw.githubusercontent.com/pedrohperoni/trackIt/main/github/register.png" alt="ss">
+</p>
+
 <img src="https://raw.githubusercontent.com/pedrohperoni/trackIt/main/github/habits.png" alt="ss">
 <img src="https://raw.githubusercontent.com/pedrohperoni/trackIt/main/github/habits1.png" alt="ss">
 <img src="https://raw.githubusercontent.com/pedrohperoni/trackIt/main/github/habits2.png" alt="ss">
